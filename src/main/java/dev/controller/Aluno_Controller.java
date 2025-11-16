@@ -22,6 +22,7 @@ public class Aluno_Controller {
         return service.findAll();
     }
 
+    @GetMapping("/{id}")
     public Aluno findById(Long id) {
         return service.findById(id);
     }
