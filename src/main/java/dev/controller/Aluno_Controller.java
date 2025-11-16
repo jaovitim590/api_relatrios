@@ -4,6 +4,7 @@ package dev.controller;
 import dev.dto.AlunoDTO;
 import dev.model.Aluno;
 import dev.service.Aluno_Service;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,8 +24,14 @@ public class Aluno_Controller {
     }
 
     @GetMapping("/{id}")
-    public Aluno findById(Long id) {
-        return service.findById(id);
+    public ResponseEntity<?> getAluno(@PathVariable Long id) {
+        try {
+            Aluno aluno = service.findById(id); // já retorna o objeto ou lança RuntimeException
+            return ResponseEntity.ok(aluno);
+        } catch (Exception e) {
+            e.printStackTrace(); // vai aparecer no log do servidor
+            return ResponseEntity.status(500).body("Erro ao buscar aluno: " + e.getMessage());
+        }
     }
 
     @PostMapping("/salvar")
