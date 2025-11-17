@@ -89,5 +89,9 @@ public class Relatorio_service {
             relatorioRepository.save(relatorio);
         }
     }
+
+    public void delete(Long id) {
+        relatorioRepository.deleteById(id);
+    }
 }
 

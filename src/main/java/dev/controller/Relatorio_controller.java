@@ -45,5 +45,9 @@ public class Relatorio_controller {
     public void atualizarParcial(@PathVariable Long id, @RequestBody RelatorioDTO dto) {
         relatorioService.updatePartial(id, dto);
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        relatorioService.delete(id);
+    }
 }
 
