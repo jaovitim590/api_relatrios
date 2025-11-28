@@ -15,7 +15,8 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:5173",
-                                "https://relatorio-react-d2rl.vercel.app") // ← Adicione a origem
+                                "https://relatorio-react-d2rl.vercel.app",
+                                "https://relatorio-react.vercel.app") // ← Adicione a origem
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS") // ← Adicione PATCH e OPTIONS
                         .allowedHeaders("*")
                         .allowCredentials(true); // ← Adicione isso também
